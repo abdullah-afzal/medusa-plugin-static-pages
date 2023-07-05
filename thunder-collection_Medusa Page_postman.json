@@ -1,0 +1,140 @@
+{
+    "info": {
+        "name": "Medusa Page",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+       
+        {
+            "name": "Add Page",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:9000/admin/page",
+                    "path": [
+                        "admin",
+                        "page"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"handle\":\"first-post\",\n  \"title\": \"First Post\",\n  \"metadata\":\"First Post\",\n  \"body\":\"First Post\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Update Page",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:9000/admin/page/page_01H0JG1QSZNEYGSQAYAXEBEVQ2",
+                    "path": [
+                        "admin",
+                        "page",
+                        "page_01H0JG1QSZNEYGSQAYAXEBEVQ2"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"handle\":\"first-post\",\n  \"title\": \"First Post\",\n  \"metadata\":\"First Post\",\n  \"body\":\"First Post\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Delete Page",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:9000/admin/page/post_01H0J9ZG0XVZG53PRWGTQMPQ3N",
+                    "path": [
+                        "admin",
+                        "page",
+                        "post_01H0J9ZG0XVZG53PRWGTQMPQ3N"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9000"
+                }
+            }
+        },
+        {
+            "name": "Get Page",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9000/store/pages",
+                    "path": [
+                        "store",
+                        "pages"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9000"
+                }
+            }
+        },
+        {
+            "name": "Get Page By Handle",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9000/store/page/first-post",
+                    "path": [
+                        "store",
+                        "page",
+                        "first-post"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9000"
+                }
+            }
+        },
+        {
+            "name": "Get Page By Id",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9000/store/page/id",
+                    "path": [
+                        "store",
+                        "page",
+                        "id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9000"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+   "name": "medusa-plugin-page",
+   "version": "0.0.1",
+   "description": "Basic static pages backend for Medusa",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/abdullah-afzal/medusa-plugin-page"
+   },
+   "homepage": "",
+   "author": "Abdullah Afzal",
+   "license": "MIT",
+   "keywords": [
+      "medusa-plugin",
+      "page",
+      "static-page",
+      "ecommerce",
+      "headless",
+      "medusa"
+   ],
+   "devDependencies": {
+      "body-parser": "^1.20.2",
+      "cors": "^2.8.5",
+      "cross-env": "^5.2.1",
+      "express": "^4.18.2",
+      "typeorm": "^0.3.16",
+      "typescript": "^4.4.4"
+   },
+   "scripts": {
+      "prepare": "cross-env NODE_ENV=production yarn run build",
+      "test": "jest --passWithNoTests src",
+      "build": "tsc",
+      "watch": "tsc --watch"
+   },
+   "peerDependencies": {
+      "@medusajs/medusa": "^1.12.0",
+      "@medusajs/utils": "1.9.0"
+   },
+   "dependencies": {
+      "zod": "^3.21.4"
+   }
+}

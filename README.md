@@ -1,4 +1,4 @@
-# medusa-plugin-blog
+# medusa-plugin-static-pages
 
 Provides a basic static pages backend for Medusa. 
 

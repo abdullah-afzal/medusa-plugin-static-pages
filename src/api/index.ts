@@ -33,7 +33,7 @@ export default (rootDirectory: string): Router | Router[] => {
    // GET A SINGLE PAGE BY ID
    router.get("/store/page/:id", cors(storeCorsOptions), async (req, res) => {
       const pageService = req.scope.resolve("pageService")
-      pageService.getPageById(req.params.handle).then((page) => {
+      pageService.getPageById(req.params.id).then((page) => {
          return res.json(page)
       })
    })

@@ -1,3 +1,9 @@
+## 0.1.4
+
+### Patch Changes
+
+- dist folder added in npm package
+
 ## 0.1.3
 
 ### Patch Changes

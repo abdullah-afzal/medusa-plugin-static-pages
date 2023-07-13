@@ -18,7 +18,10 @@
       "medusa"
    ],
    "scripts": {
-      "build": "medusa-admin bundle"
+      "prepare": "cross-env NODE_ENV=production yarn run build",
+      "test": "jest --passWithNoTests src",
+      "build": "tsc",
+      "watch": "tsc --watch"
    },
    "packageManager": "yarn@3.5.0",
    "devDependencies": {

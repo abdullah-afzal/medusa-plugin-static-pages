@@ -1,3 +1,15 @@
+## 0.1.3
+
+### Patch Changes
+
+- medusajs/admin version update
+
+## 0.1.2
+
+### Patch Changes
+
+- tsconfig.server and tsconfig.admin added
+
 ## 0.1.1
 
 ### Patch Changes

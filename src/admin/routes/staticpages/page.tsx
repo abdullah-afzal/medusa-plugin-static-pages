@@ -7,9 +7,8 @@ import PageTable from "../../components/tables/pages";
 const PagesPage = () => {
 
     const {data, isLoading} = useAdminCustomQuery(
-
         "/pages", ['get_pages']
-        )
+    )
 
 
     return (
@@ -35,7 +34,7 @@ const PagesPage = () => {
                                             </div>
                                             <div className="flex items-center space-x-2">
                                                 <div>
-                                                    <button type="button"
+                                                    <a type="button" href={"/a/staticpages/create"}
                                                             className="btn btn-secondary btn-small flex items-center">
                             <span className="mr-xsmall last:mr-0"><div className="gap-x-2xsmall flex items-center">
                               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -45,7 +44,7 @@ const PagesPage = () => {
                                 <path d="M4.16699 10H15.8337"></path>
                               </svg>Add Static Page</div>
                             </span>
-                                                    </button>
+                                                    </a>
                                                 </div>
 
                                             </div>

@@ -38,6 +38,17 @@ export default (rootDirectory: string): Router | Router[] => {
       })
    })
 
+
+   // GET ALL PAGES
+   router.use("/admin/pages", bodyParser.json())
+   router.get("/admin/pages", cors(storeCorsOptions), async (req, res) => {
+      const pageService = req.scope.resolve("pageService")
+      pageService.getPages().then((pages) => {
+         return res.json(pages)
+      })
+   })
+
+
    // ADD A PAGE
    router.use("/admin/page", bodyParser.json())
    router.post("/admin/page", cors(adminCorsOptions), async (req, res) => {

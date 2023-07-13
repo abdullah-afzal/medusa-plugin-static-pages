@@ -1,6 +1,6 @@
 {
    "name": "medusa-plugin-static-pages",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "description": "Basic static pages backend for Medusa",
    "repository": {
       "type": "git",
@@ -20,7 +20,7 @@
    "scripts": {
       "prepare": "cross-env NODE_ENV=production yarn run build",
       "test": "jest --passWithNoTests src",
-      "build": "tsc",
+      "build": "tsc && medusa-admin bundle",
       "watch": "tsc --watch"
    },
    "packageManager": "yarn@3.5.0",

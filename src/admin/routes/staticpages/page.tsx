@@ -1,15 +1,22 @@
 import {RouteConfig} from "@medusajs/admin";
 import {QueryKey, useQuery} from "@tanstack/react-query"
 import {useAdminCustomQuery} from "medusa-react"
-
+import { useNavigate } from "react-router-dom";
 import PageTable from "../../components/tables/pages";
+import {Badge, Button, Drawer, DropdownMenu} from "@medusajs/ui";
+import React from "react";
+import {Plus} from "@medusajs/icons"
+
 
 const PagesPage = () => {
-
+    const navigate = useNavigate();
     const {data, isLoading} = useAdminCustomQuery(
         "/pages", ['get_pages']
     )
 
+    function onClickCreatePage() {
+        navigate("/a/staticpages/create")
+    }
 
     return (
         <>
@@ -34,17 +41,9 @@ const PagesPage = () => {
                                             </div>
                                             <div className="flex items-center space-x-2">
                                                 <div>
-                                                    <a type="button" href={"/a/staticpages/create"}
-                                                            className="btn btn-secondary btn-small flex items-center">
-                            <span className="mr-xsmall last:mr-0"><div className="gap-x-2xsmall flex items-center">
-                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                   xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10 4.16667V15.8333">
-                                </path>
-                                <path d="M4.16699 10H15.8337"></path>
-                              </svg>Add Static Page</div>
-                            </span>
-                                                    </a>
+                                                    <div className="flex space-x-2">
+                                                        <Button className={'p-2'} size={"sm"} variant="secondary" onClick={onClickCreatePage}><Plus />Create Page</Button>
+                                                    </div>
                                                 </div>
 
                                             </div>

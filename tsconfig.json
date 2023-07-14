@@ -2,7 +2,7 @@
   "compilerOptions": {
      "lib": ["es2020"],
      "target": "es2020",
-     "outDir": "./",
+     "outDir": "./dist",
      "rootDir": "./src",
      "jsx": "react-jsx",
      "esModuleInterop": true,

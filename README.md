@@ -15,6 +15,23 @@ Breaking changes are very likely to occur.
 ## Features
  
 - Pages can be queried by handle or id.  
+- CRUD pages will be display at admin side
+
+## Add Plugin Configuration
+
+To pass a plugin its configurations on a Medusa backend, you have to add it to the _plugins_ array in `medusa-config.js`:
+
+```js
+const plugins = [
+  // ...
+  {
+    resolve: "medusa-plugin-static-pages",
+    options: {
+      enableUI: true,
+    },
+  },
+]
+```
 
 
 ## API Endpoints

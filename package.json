@@ -1,6 +1,6 @@
 {
    "name": "medusa-plugin-static-pages",
-   "version": "0.1.4",
+   "version": "0.1.5",
    "description": "Basic static pages backend for Medusa",
    "repository": {
       "type": "git",

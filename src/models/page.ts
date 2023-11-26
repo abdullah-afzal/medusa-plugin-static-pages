@@ -20,6 +20,6 @@ export class Page extends BaseEntity {
 
    @BeforeInsert()
    private beforeInsert(): void {
-      this.id = generateEntityId(this.id, "post")
+      this.id = generateEntityId(this.id, "page")
    }
 }

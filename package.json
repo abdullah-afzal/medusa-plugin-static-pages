@@ -1,7 +1,7 @@
 {
    "name": "medusa-plugin-static-pages",
-   "version": "0.1.5",
-   "description": "Basic static pages backend for Medusa",
+   "version": "0.1.5-test-3",
+   "description": "Static pages plugin for Medusa",
    "repository": {
       "type": "git",
       "url": "https://github.com/abdullah-afzal/medusa-plugin-static-pages"
@@ -23,16 +23,13 @@
       "build": "tsc -p ./tsconfig.server.json && medusa-admin bundle",
       "watch": "tsc --watch"
    },
-   "packageManager": "yarn@3.5.0",
    "devDependencies": {
-      "@medusajs/admin": "^7.0.0-alpha-20230713133730",
-      "@medusajs/medusa": "1.12.1-snapshot-20230616112308",
+      "@medusajs/admin": "7.1.7",
+      "@medusajs/medusa": "1.18.0",
       "@types/react": "^18.2.12",
       "autoprefixer": "^10.4.14",
-      "postcss": "^8.4.24",
       "react": "^18.2.0",
       "react-router-dom": "^6.13.0",
-      "tailwindcss": "^3.3.2",
       "typeorm": "^0.3.16",
       "typescript": "^5.1.3"
    },
@@ -41,9 +38,15 @@
       "react-router-dom": "^6.13.0"
    },
    "dependencies": {
-      "@medusajs/icons": "^0.0.0-alpha-20230713141422",
-      "@medusajs/ui": "^0.0.0-alpha-20230713141422",
-      "react-quill": "^2.0.0",
-      "zod": "^3.21.4"
+      "@grapesjs/react": "^1.0.0",
+      "@medusajs/icons": "^1.1.0",
+      "@medusajs/ui": "^2.2.2",
+      "grapesjs": "^0.21.7",
+      "grapesjs-blocks-basic": "^1.0.2",
+      "grapesjs-blocks-flexbox": "^1.0.1",
+      "grapesjs-plugin-ckeditor": "^1.0.1",
+      "grapesjs-preset-webpage": "^1.0.3",
+      "grapesjs-style-bg": "^2.0.2",
+      "grapesjs-style-filter": "^1.0.2"
    }
 }

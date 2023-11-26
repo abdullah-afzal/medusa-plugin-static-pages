@@ -1,6 +1,6 @@
 # medusa-plugin-static-pages
 
-Provides a basic static pages backend for Medusa. 
+Static pages for Medusa. 
 
 [Documentation](https://github.com/abdullah-afzal/medusa-plugin-page/blob/main/README.md)
 
@@ -12,10 +12,9 @@ If you are not familiar with Medusa, you can learn more on [the project web site
 
 Breaking changes are very likely to occur.
 
-## Features
+## Functionality
  
-- Pages can be queried by handle or id.  
-- CRUD pages will be display at admin side
+- Create and manage static pages for your medusa store
 
 ## Add Plugin Configuration
 

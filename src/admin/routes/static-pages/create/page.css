@@ -1,0 +1,32 @@
+@import url("grapesjs/dist/css/grapes.min.css");
+
+
+/* Primary color for the background */
+.gjs-one-bg {
+  background-color: #030712 !important;
+}
+
+/* Secondary color for the text color */
+.gjs-two-color {
+  color: #8a99b1 !important;
+}
+
+/* Tertiary color for the background */
+.gjs-three-bg {
+  background-color: #9ca3af !important;
+  color: white;
+}
+
+/* Quaternary color for the text color */
+
+.gjs-block__media,
+.gjs-block__media > svg > path {
+  fill: #d7e1f0 !important;
+  color: #d7e1f0 !important;
+}
+
+.gjs-four-color,
+.gjs-four-color-h,
+.gjs-four-color-h:hover {
+  color: #d7e1f0 !important;
+}

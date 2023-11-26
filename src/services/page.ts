@@ -1,74 +1,82 @@
-import { TransactionBaseService } from '@medusajs/medusa'
-import { PageRepository } from '../repositories/page'
+import { TransactionBaseService, buildQuery, FindConfig, Selector } from "@medusajs/medusa";
+import { PageRepository } from "../repositories/page";
+import { Page } from "../models/page";
 
 export default class PageService extends TransactionBaseService {
-
-	protected readonly pageRepository_: typeof PageRepository
+	protected readonly pageRepository_: typeof PageRepository;
 
 	constructor({ pageRepository }) {
-		super(arguments[0])
-		this.pageRepository_ = pageRepository
+		super(arguments[0]);
+		this.pageRepository_ = pageRepository;
 	}
 
 	async getPages() {
-		/* @ts-ignore */
-		const pageRepository = this.activeManager_.withRepository(this.pageRepository_)
-		return await pageRepository.find()
-	}	
-
-	async getPageById(id) {
-		/* @ts-ignore */
-		const pageRepository = this.activeManager_.withRepository(this.pageRepository_)
-		return await pageRepository.findOne({
-			where: { id }
-		})
+		const pageRepository = this.activeManager_.withRepository(
+			this.pageRepository_
+		);
+		return await pageRepository.find();
 	}
 
-	async getPageByHandle(handle) {
-		/* @ts-ignore */
-		const pageRepository = this.activeManager_.withRepository(this.pageRepository_)
-		return await pageRepository.findOne({
-			where: { handle }
-		})
+	async getPageByIdOrHandle(identifier: string) {
+		const pageRepository = this.activeManager_.withRepository(this.pageRepository_);
+
+		// Try to find by id
+		const pageById = await pageRepository.findOne({
+			where: { id: identifier },
+		});
+
+		// If found by id, return the result
+		if (pageById) {
+			return pageById;
+		}
+
+		// If not found by id, try to find by handle
+		const pageByHandle = await pageRepository.findOne({
+			where: { handle: identifier },
+		});
+
+		// Return the result, even if it's undefined
+		return pageByHandle;
 	}
 
-	async addPage(post) {
-		const { handle, title, metadata, body } = post
-		if (!handle || !title) throw new Error("Adding a page requires a unique handle and a title")
-		
-		/* @ts-ignore */
-		const pageRepository = this.activeManager_.withRepository(this.pageRepository_)
+
+	async addPage(payload: Page) {
+		const { handle, title, metadata, body } = payload;
+		if (!handle || !title)
+			throw new Error("Adding a page requires a unique handle and a title");
+
+		const pageRepository = this.activeManager_.withRepository(
+			this.pageRepository_
+		);
 		const createdPage = pageRepository.create({
 			handle,
 			title,
 			metadata,
-			body
-		})
-		const page = await pageRepository.save(createdPage)
-		return page
-	}
-	
-	async updatePage(id, post) {
-		const { handle, title, metadata, body } = post
-		if (!id || !handle || !title) throw new Error("Updating a page requires an id, a unique handle, and a title")
-		/* @ts-ignore */
-		const pageRepository = this.activeManager_.withRepository(this.pageRepository_)
-		const existingPage = await pageRepository.findOne({ 
-			where: { id } 
-		})
-		if (!existingPage) throw new Error("No page found with that id")
-		existingPage.handle = handle
-		existingPage.title = title
-		existingPage.metadata = metadata
-		existingPage.body = body	
-		const page = await pageRepository.save(existingPage)
-		return page
+			body,
+		});
+		const page = await pageRepository.save(createdPage);
+		return page;
 	}
 
-	async deletePage(id) {
-		if (!id) throw new Error("Deleting a page requires an id")
+	async updatePage(identifier: string, payload: Page) {
+		const { handle, title, metadata, body } = payload;
+		if (!identifier || !handle || !title)
+			throw new Error(
+				"Updating a page requires an id, a unique handle, and a title"
+			);
+		const pageRepository = this.activeManager_.withRepository(
+			this.pageRepository_
+		);
+		const page = await pageRepository.update({ handle: identifier }, payload);
+		return page;
+	}
+
+	async deletePage(identifier) {
+		if (!identifier) throw new Error("Deleting a page requires an id");
 		/* @ts-ignore */
-		const pageRepository = this.activeManager_.withRepository(this.pageRepository_)
-		return await pageRepository.delete(id)
+		const pageRepository = this.activeManager_.withRepository(
+			this.pageRepository_
+		);
+		return await pageRepository.delete(identifier);
 	}
 }
